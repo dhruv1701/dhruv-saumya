@@ -33,7 +33,7 @@ VARIANTS = {
         "TITLE": "Dhruv &amp; Saumya have something to tell you…",
         "OG_TITLE": "Dhruv &amp; Saumya have something to tell you…",
         "OG_DESC": "A letter for you. Monday, 21 December 2026 · 5:30 pm · Meerut",
-        "OG_IMAGE": BASE + "card-friends-sq.jpg",
+        "OG_IMAGE": BASE + "teaser-friends.jpg",
         "GREETING": "Dear you,",
         "STORY": [
             "You have known about the two of us for a long time. And for just as long, you have been asking "
@@ -68,7 +68,7 @@ VARIANTS = {
         "TITLE": "Something happy to share, from the families of Dhruv &amp; Saumya…",
         "OG_TITLE": "Something happy to share, from the families of Dhruv &amp; Saumya…",
         "OG_DESC": "A letter for you. Monday, 21 December 2026 · 5:30 pm · Meerut",
-        "OG_IMAGE": BASE + "card-family-sq.jpg",
+        "OG_IMAGE": BASE + "teaser-family.jpg",
         "GREETING": "Namaste,",
         "STORY": [
             "With the blessings of our elders and by God&rsquo;s grace, our families have some happy news.",
