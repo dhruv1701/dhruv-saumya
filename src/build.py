@@ -2,7 +2,6 @@
 
   index.html          from Dhruv & Saumya, for friends
   family/index.html   from both families, for relatives
-  hindi/index.html    the family letter in Hindi
 
 Run from the repo root:  python3 src/build.py
 """
@@ -42,8 +41,6 @@ VARIANTS = {
             "So it is only right that you hear this from us. On the evening of 21 December, our families "
             "are sitting down together, the mithai is ordered, and we are finally making it official.",
         ],
-        "LEAD": "It&rsquo;s our",
-        "SUB": "the Roka of Dhruv &amp; Saumya",
         "AFTER": [
             "We are keeping it small, only the people who have stood by us the longest. "
             "You are one of them, and it would not feel right without you there.",
@@ -79,8 +76,6 @@ VARIANTS = {
             "Dhruv and Saumya have chosen each other. On the evening of 21 December, our two families will sit "
             "together for the first time as one, bless the children, share mithai, and make it official.",
         ],
-        "LEAD": "It is their",
-        "SUB": "the Roka of Dhruv &amp; Saumya",
         "AFTER": [
             "It will be a small gathering of our closest family. Your presence and your blessings "
             "would mean a great deal to us, and to them.",
@@ -88,43 +83,6 @@ VARIANTS = {
         "SIGNOFF": "With love and respect,",
         "SIGNATURE": '    <p class="sig-pre">the families of</p>\n' + SIGNATURE,
         "PS": "",
-    },
-    "hindi": {
-        "out": "hindi/index.html",
-        "LANG": "hi",
-        "BODY_CLASS": "hi",
-        "TITLE": "ध्रुव एवं सौम्या के परिवार कुछ बताना चाहते हैं…",
-        "OG_TITLE": "ध्रुव एवं सौम्या के परिवार कुछ बताना चाहते हैं…",
-        "OG_DESC": "आपके लिए एक पत्र। सोमवार, 21 दिसंबर 2026 · शाम 5:30 बजे · मेरठ",
-        "OG_IMAGE": BASE + "card-hindi.jpg",
-        "DATELINE": "मेरठ, 21 दिसंबर 2026",
-        "GREETING": "सादर नमस्ते,",
-        "STORY": [
-            "बड़ों के आशीर्वाद और ईश्वर की कृपा से हमारे परिवारों के पास एक शुभ समाचार है, "
-            "और हम चाहते थे कि आप इसे सबसे पहले हमसे ही सुनें।",
-            "ध्रुव और सौम्या ने एक-दूसरे को चुन लिया है। 21 दिसंबर की शाम हमारे दोनों परिवार पहली बार "
-            "एक होकर साथ बैठेंगे, बच्चों को आशीर्वाद देंगे, मुँह मीठा करेंगे और इस रिश्ते को पक्का करेंगे।",
-        ],
-        "LEAD": "यह है उनका",
-        "SUB": "ध्रुव एवं सौम्या",
-        "AFTER": [
-            "यह हमारे सबसे करीबी परिवारजनों का एक छोटा-सा आयोजन होगा। आपकी उपस्थिति और आपका आशीर्वाद "
-            "हमारे लिए, और उन दोनों के लिए, बहुत मायने रखेगा।",
-        ],
-        "SIGNOFF": "सप्रेम एवं सादर,",
-        "SIGNATURE": '    <p class="sig-pre">शुभाकांक्षी</p>\n    <p class="signature">ध्रुव एवं सौम्या के परिवार</p>',
-        "PS": "",
-        "D_DAY": "सोमवार",
-        "D_DATE": "21 दिसंबर 2026",
-        "D_TIME": "शाम 5:30 बजे <em>से</em>",
-        "D_ADDR": "हनुमान चौक, बॉम्बे बाज़ार,<br>सदर बाज़ार, मेरठ",
-        "WAY": "रास्ता देखें",
-        "OPEN_LABEL": "पत्र खोलें",
-        "FOR": "आपके लिए",
-        "WHEN_WHERE": "कब और कहाँ",
-        "CD_MANY": "{n} दिन शेष",
-        "CD_ONE": "कल शाम",
-        "CD_ZERO": "आज शाम",
     },
 }
 
