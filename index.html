@@ -6,18 +6,18 @@
 <meta name="theme-color" content="#1b100c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dhruv &amp; Saumya">
-<meta property="og:title" content="Dhruv &amp; Saumya's Roka">
-<meta property="og:description" content="Monday, 21 December 2026 · from 5:30 pm · TFC, Meerut. A small evening with the people closest to us.">
-<meta property="og:image" content="https://dhruv1701.github.io/roka/card-2.jpg">
-<meta property="og:image:secure_url" content="https://dhruv1701.github.io/roka/card-2.jpg">
+<meta property="og:title" content="Dhruv &amp; Saumya have some news">
+<meta property="og:description" content="A letter for you. Monday, 21 December 2026 · 5:30 pm · Meerut">
+<meta property="og:image" content="https://dhruv1701.github.io/dhruv-saumya/card-friends.jpg">
+<meta property="og:image:secure_url" content="https://dhruv1701.github.io/dhruv-saumya/card-friends.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A red gatefold invitation sealed with gold, for the Roka of Dhruv and Saumya">
+<meta property="og:image:alt" content="A red gatefold letter sealed in gold, from Dhruv and Saumya">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%238a1a12'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23d6a24a'/%3E%3C/svg%3E">
-<title>Dhruv &amp; Saumya's Roka</title>
-<meta name="description" content="A letter from Dhruv and Saumya: our Roka, Monday 21 December 2026, from 5:30 pm at TFC, Sadar Bazaar, Meerut.">
+<title>A letter from Dhruv &amp; Saumya</title>
+<meta name="description" content="A letter for you. Monday, 21 December 2026 · 5:30 pm · Meerut">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mrs+Saint+Delafield&family=Tiro+Devanagari+Hindi&display=swap">
@@ -30,7 +30,7 @@
 </script>
 <style>
   /* Layout: a handwritten letter on cotton paper, lying on a lamplit table at dusk.
-     Sealed in red shagun paper; the doors open onto the letter. One world, one look in both themes. */
+     Sealed in red shagun paper. The letter tells the story first; the word रोका is revealed partway down. */
   :root {
     color-scheme: dark;
     --table: #1b100c;
@@ -50,7 +50,6 @@
     --gold-lit: #f0c66e;
     --marigold: #e88b17;
     --haldi: #f3bd3f;
-    --leaf: #546f3c;
     --rice: #fbf5e8;
 
     --font-script: "Mrs Saint Delafield", "Snell Roundhand", "Apple Chancery", cursive;
@@ -58,8 +57,11 @@
     --font-deva: "Tiro Devanagari Hindi", "Kohinoor Devanagari", serif;
 
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
     --ease-door: cubic-bezier(0.65, 0, 0.25, 1);
   }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  [hidden] { display: none !important; }
 
   html, body { min-height: 100%; }
   body {
@@ -75,7 +77,6 @@
   }
   ::selection { background: var(--haldi); color: var(--ink); }
 
-  /* the lamp glow that breathes on the table */
   .glow {
     position: fixed;
     inset: 0;
@@ -129,7 +130,6 @@
     box-shadow: 0 28px 40px -6px rgb(0 0 0 / 0.6), 0 4px 10px rgb(0 0 0 / 0.3);
     pointer-events: none;
   }
-
   .letter > * { position: relative; z-index: 1; }
 
   .dateline {
@@ -141,25 +141,8 @@
     color: var(--ink-soft);
   }
 
-  .roka {
-    margin: clamp(10px, 3vw, 22px) 0 0;
-    font-family: var(--font-deva);
-    font-weight: 400;
-    font-size: clamp(68px, 19vw, 112px);
-    line-height: 1.15;
-    color: var(--sindoor);
-    letter-spacing: 0;
-  }
-  .of {
-    margin: 2px 0 0;
-    font-size: 15px;
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.14em;
-    color: var(--ink-soft);
-  }
-
   .greeting {
-    margin: clamp(30px, 8vw, 52px) 0 0;
+    margin: clamp(34px, 9vw, 56px) 0 0;
     font-family: var(--font-script);
     font-weight: 400;
     font-size: clamp(46px, 12vw, 62px);
@@ -168,10 +151,7 @@
     color: var(--ink);
   }
 
-  .body {
-    margin-top: 10px;
-    max-width: 31em;
-  }
+  .body { margin-top: 10px; max-width: 31em; }
   .body p {
     margin: 0 0 0.85em;
     font-style: italic;
@@ -179,11 +159,85 @@
     line-height: 1.62;
     color: var(--ink);
     text-wrap: pretty;
-    hanging-punctuation: first;
+  }
+  .body p:last-child { margin-bottom: 0; }
+
+  /* ---------- The reveal ---------- */
+  .reveal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: clamp(30px, 8vw, 46px) 0 clamp(30px, 8vw, 44px);
+  }
+  .reveal-lead {
+    margin: 0;
+    font-style: italic;
+    font-size: clamp(19px, 4.8vw, 21.5px);
+    color: var(--ink-soft);
+  }
+  .reveal-word {
+    position: relative;
+    margin-top: 2px;
+    padding: 0 0.12em;
+  }
+  .roka {
+    margin: 0;
+    font-family: var(--font-deva);
+    font-weight: 400;
+    font-size: clamp(92px, 26vw, 140px);
+    line-height: 1.12;
+    color: var(--sindoor);
+  }
+  .thumb {
+    position: absolute;
+    width: clamp(54px, 15vw, 76px);
+    right: -0.55em;
+    top: 0.05em;
+    font-size: clamp(92px, 26vw, 140px);
+    pointer-events: none;
+  }
+  .reveal-sub {
+    margin: 4px 0 0;
+    font-size: 15px;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+  }
+  .burst { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
+  .burst span {
+    position: absolute;
+    left: -5px;
+    top: -7px;
+    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  }
+
+  .anim .reveal:not(.shown) .roka { clip-path: inset(-12% 100% -12% 0); }
+  .anim .reveal.shown .roka {
+    clip-path: inset(-12% -6% -12% 0);
+    transition: clip-path 1300ms var(--ease-in-out);
+  }
+  .anim .reveal:not(.shown) .thumb { opacity: 0; transform: scale(1.35) rotate(-8deg); }
+  .anim .reveal.shown .thumb {
+    opacity: 1;
+    transform: none;
+    transition: opacity 260ms ease-out 1150ms, transform 420ms var(--ease-out) 1150ms;
+  }
+  .anim .reveal:not(.shown) .reveal-sub { opacity: 0; transform: translateY(6px); }
+  .anim .reveal.shown .reveal-sub {
+    opacity: 1;
+    transform: none;
+    transition: opacity 600ms ease-out 1400ms, transform 700ms var(--ease-out) 1400ms;
   }
 
   .signoff {
-    margin: clamp(18px, 5vw, 28px) 0 0;
+    margin: clamp(24px, 6vw, 32px) 0 0;
+    font-style: italic;
+    font-size: clamp(19px, 4.8vw, 21.5px);
+    color: var(--ink-soft);
+  }
+  .sig-pre {
+    margin: 2px 0 0;
     font-style: italic;
     font-size: clamp(19px, 4.8vw, 21.5px);
     color: var(--ink-soft);
@@ -200,20 +254,6 @@
   }
   .signature .amp { font-size: 0.62em; color: var(--sindoor); padding: 0 0.08em; }
 
-  .divide {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: clamp(32px, 8vw, 48px) 0 clamp(24px, 6vw, 34px);
-  }
-  .divide::before, .divide::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-  .divide svg { width: 30px; height: 30px; flex: none; }
-
   .ps {
     margin: clamp(18px, 5vw, 26px) 0 0;
     font-style: italic;
@@ -221,55 +261,36 @@
     color: var(--ink-soft);
   }
 
-  /* the when and where, set like the foot of a letter */
-  .details {
+  .divide {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 14px;
+    margin: clamp(32px, 8vw, 48px) 0 clamp(24px, 6vw, 34px);
   }
+  .divide::before, .divide::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+  .divide svg { width: 30px; height: 30px; flex: none; }
+
+  .details { display: flex; flex-direction: column; align-items: center; text-align: center; }
   .details p { margin: 0; }
-  .d-day {
-    font-style: italic;
-    font-size: 19px;
-    color: var(--ink-soft);
-  }
+  .d-day { font-style: italic; font-size: 19px; color: var(--ink-soft); }
   .d-date {
     margin-top: 2px;
     font-size: clamp(30px, 8.4vw, 40px);
     line-height: 1.15;
-    font-weight: 400;
     letter-spacing: -0.005em;
     color: var(--ink);
-    font-variant-numeric: oldstyle-nums;
   }
   .d-time {
     margin-top: 6px;
-    font-style: italic;
-    font-size: 19px;
-    color: var(--ink-soft);
-  }
-  .d-mark {
-    width: 6px;
-    height: 6px;
-    margin: 26px 0;
-    border-radius: 50%;
-    background: var(--sindoor);
-  }
-  .d-venue {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 500;
-    letter-spacing: 0.28em;
-    padding-left: 0.28em;
     color: var(--ink);
+    font-variant-numeric: lining-nums;
   }
-  .d-addr {
-    margin-top: 6px;
-    font-style: italic;
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-  }
+  .d-time em { font-weight: 400; color: var(--ink-soft); }
+  .d-mark { width: 6px; height: 6px; margin: 26px 0; border-radius: 50%; background: var(--sindoor); }
+  .d-venue { font-size: 22px; font-weight: 500; letter-spacing: 0.28em; padding-left: 0.28em; color: var(--ink); }
+  .d-addr { margin-top: 6px; font-style: italic; font-size: 19px; line-height: 1.5; color: var(--ink-soft); }
 
   .way {
     display: inline-flex;
@@ -299,13 +320,7 @@
     .way:hover span { background-size: 100% 2px; }
   }
 
-  .lamp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    margin-top: clamp(30px, 7vw, 44px);
-  }
+  .lamp { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: clamp(30px, 7vw, 44px); }
   .lamp svg { width: 88px; height: 70px; overflow: visible; }
   .countdown {
     margin: 0;
@@ -314,7 +329,6 @@
     font-variant-caps: all-small-caps;
     letter-spacing: 0.14em;
     color: var(--ink-soft);
-    font-variant-numeric: oldstyle-nums;
   }
   .flame { transform-box: fill-box; transform-origin: 50% 100%; }
   .halo { transform-box: fill-box; transform-origin: 50% 50%; }
@@ -334,10 +348,8 @@
     60% { opacity: 0.5; transform: scale(0.97); }
   }
 
-  /* pressed flowers, kumkum and rice: things that were actually on the table */
   .keepsake { position: absolute; z-index: 0; pointer-events: none; }
   .k-flower { width: clamp(96px, 26vw, 138px); top: clamp(-30px, -5vw, -18px); right: clamp(-34px, -6vw, -20px); transform: rotate(14deg); }
-  .k-kumkum { width: clamp(70px, 18vw, 92px); top: clamp(16px, 4vw, 34px); left: clamp(14px, 4vw, 34px); }
 
   /* ---------- Shagun doors and seal (only when motion runs) ---------- */
   .doors, .cover, .shade, .petals { display: none; }
@@ -360,30 +372,12 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform, opacity;
-    transition:
-      transform 1400ms var(--ease-door),
-      opacity 560ms ease-out 700ms;
+    transition: transform 1400ms var(--ease-door), opacity 560ms ease-out 700ms;
   }
-  .door::before {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
-    pointer-events: none;
-  }
-  .door-l {
-    border-radius: 3px 0 0 3px;
-    transform-origin: left center;
-    box-shadow: inset -10px 0 18px -12px rgb(0 0 0 / 0.6);
-    background-position: right top, 0 0;
-  }
+  .door::before { content: ""; position: absolute; inset: 12px; border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); pointer-events: none; }
+  .door-l { border-radius: 3px 0 0 3px; transform-origin: left center; box-shadow: inset -10px 0 18px -12px rgb(0 0 0 / 0.6); background-position: right top, 0 0; }
   .door-l::before { border-right: 0; }
-  .door-r {
-    border-radius: 0 3px 3px 0;
-    transform-origin: right center;
-    box-shadow: inset 10px 0 18px -12px rgb(0 0 0 / 0.6);
-    background-position: left top, 0 0;
-  }
+  .door-r { border-radius: 0 3px 3px 0; transform-origin: right center; box-shadow: inset 10px 0 18px -12px rgb(0 0 0 / 0.6); background-position: left top, 0 0; }
   .door-r::before { border-left: 0; }
 
   .anim .shade {
@@ -413,8 +407,8 @@
     position: relative;
     display: grid;
     place-items: center;
-    width: 108px;
-    height: 108px;
+    width: 112px;
+    height: 112px;
     padding: 0;
     border: 0;
     background: none;
@@ -426,16 +420,18 @@
   .seal svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .seal-mono {
     position: relative;
-    font-family: var(--font-script);
-    font-size: 46px;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 30px;
     line-height: 1;
-    padding-top: 10px;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
   }
+  .seal-mono span { font-size: 0.62em; font-weight: 400; margin: 0 0.12em; color: #8a5414; }
   .seal:active { transform: scale(0.95); }
   .seal:focus-visible { outline: 2px solid var(--gold-lit); outline-offset: 6px; border-radius: 50%; }
-  @media (hover: hover) and (pointer: fine) {
-    .seal:hover { transform: scale(1.03); }
-  }
+  @media (hover: hover) and (pointer: fine) { .seal:hover { transform: scale(1.03); } }
   .for {
     margin: 4px 0 0;
     font-family: var(--font-script);
@@ -447,61 +443,33 @@
   }
 
   /* Opening sequence */
-  .anim .letter {
-    opacity: 0;
-    transform: translateY(18px) scale(0.985);
-    transition: opacity 800ms ease-out, transform 1000ms var(--ease-out);
-  }
+  .anim .letter { opacity: 0; transform: translateY(18px) scale(0.985); transition: opacity 800ms ease-out, transform 1000ms var(--ease-out); }
   .anim.ready .letter { opacity: 1; transform: none; }
-
-  .anim .seal-wrap {
-    transition: transform 440ms var(--ease-out), opacity 380ms ease-out, filter 440ms ease-out;
-  }
+  .anim .seal-wrap { transition: transform 440ms var(--ease-out), opacity 380ms ease-out, filter 440ms ease-out; }
   .anim.opening .seal-wrap { transform: scale(1.14); opacity: 0; filter: blur(6px); }
   .anim.opening .for { opacity: 0; }
   .anim.opening .cover { pointer-events: none; }
-
   .anim.open .door-l { transform: rotateY(-112deg); opacity: 0; }
   .anim.open .door-r { transform: rotateY(112deg); opacity: 0; }
   .anim.open .shade { opacity: 0; }
   .anim.open .doors { pointer-events: none; }
 
-  .anim .rise {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+  .anim .rise { opacity: 0; transform: translateY(12px); }
   .anim.open .rise {
     opacity: 1;
     transform: none;
-    transition:
-      opacity 700ms ease-out,
-      transform 900ms var(--ease-out);
+    transition: opacity 700ms ease-out, transform 900ms var(--ease-out);
     transition-delay: calc(480ms + var(--i, 0) * 90ms);
   }
 
-  .anim .petals {
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .petal {
-    position: absolute;
-    top: -16px;
-    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
-    will-change: transform, opacity;
-  }
+  .anim .petals { display: block; position: absolute; inset: 0; z-index: 5; overflow: hidden; pointer-events: none; }
+  .petal { position: absolute; top: -16px; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; will-change: transform, opacity; }
 
   .rm .letter { animation: settle 260ms ease-out both; }
   @keyframes settle { from { opacity: 0; } to { opacity: 1; } }
-  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <filter id="smear" x="-20%" y="-20%" width="140%" height="140%">
@@ -517,35 +485,44 @@
 <div class="glow" aria-hidden="true"></div>
 
 <main class="stage">
-  <article class="letter" aria-labelledby="roka-title">
-    <svg class="keepsake k-kumkum rise" style="--i:0" viewBox="0 0 92 70" aria-hidden="true" id="kumkum"></svg>
-    <svg class="keepsake k-flower rise" style="--i:1" viewBox="-60 -60 120 120" aria-hidden="true" id="flower"></svg>
+  <article class="letter" aria-label="A letter from Dhruv &amp; Saumya">
+    <svg class="keepsake k-flower rise" style="--i:0" viewBox="-60 -60 120 120" aria-hidden="true" id="flower"></svg>
 
-    <p class="dateline rise" style="--i:0">Meerut, December 2026</p>
+    <p class="dateline rise" style="--i:0">Meerut, 21 December 2026</p>
 
-    <h1 class="roka rise" style="--i:1" id="roka-title"><span lang="hi">रोका</span></h1>
-    <p class="of rise" style="--i:2">of Dhruv &amp; Saumya</p>
+    <p class="greeting rise" style="--i:1">Dear you,</p>
 
-    <p class="greeting rise" style="--i:3" id="greeting">Dear you,</p>
-
-    <div class="body rise" style="--i:4">
-      <p>Saumya and I have some news, though we suspect you already know. On the twenty-first of December, our two families will sit together for the first time as one, share mithai, and make it official.</p>
-      <p>We are keeping it small, only the people who have loved us the longest. You are one of them, and the evening would not feel complete without you there.</p>
+    <div class="body rise" style="--i:2">
+      <p>You have been part of this story from the very start, through all the long calls, and every time you asked what was going on with us two while we smiled and changed the subject.</p>
+      <p>So it is only right that you hear this from us. On the evening of 21 December, our families are sitting down together, the mithai is ordered, and we are finally making it official.</p>
     </div>
 
-    <p class="signoff rise" style="--i:5">With all our love,</p>
-    <p class="signature rise" style="--i:5">Dhruv <span class="amp">&amp;</span> Saumya</p>
+    <section class="reveal" id="reveal">
+      <p class="reveal-lead">It&rsquo;s our</p>
+      <div class="reveal-word">
+        <h1 class="roka" lang="hi">रोका</h1>
+        <svg class="thumb" viewBox="0 0 92 70" aria-hidden="true" id="kumkum"></svg>
+        <div class="burst" id="burst" aria-hidden="true"></div>
+      </div>
+      <p class="reveal-sub">the Roka of Dhruv &amp; Saumya</p>
+    </section>
 
-    <p class="ps rise" style="--i:6">P.S. Come hungry.</p>
+    <div class="body">
+      <p>We are keeping it small, only the people who have stood by us the longest. You are one of them, and it would not feel right without you there.</p>
+    </div>
 
-    <div class="divide rise" style="--i:7" aria-hidden="true">
+    <p class="signoff">With all our love,</p>
+    <p class="signature">Dhruv <span class="amp">&amp;</span> Saumya</p>
+    <p class="ps">P.S. Come hungry.</p>
+
+    <div class="divide" aria-hidden="true">
       <svg viewBox="-60 -60 120 120" id="divideFlower"></svg>
     </div>
 
-    <section class="details rise" style="--i:8" aria-label="When and where">
+    <section class="details" aria-label="When and where">
       <p class="d-day">Monday</p>
       <p class="d-date">21 December 2026</p>
-      <p class="d-time">from half past five in the evening</p>
+      <p class="d-time">5:30 pm <em>onwards</em></p>
 
       <span class="d-mark" aria-hidden="true"></span>
 
@@ -558,17 +535,17 @@
       </a>
     </section>
 
-    <div class="lamp rise" style="--i:9">
+    <div class="lamp">
       <svg viewBox="0 0 88 70" aria-hidden="true">
         <defs>
           <radialGradient id="haloG" cx="50%" cy="50%" r="50%">
-            <stop offset="0" style="stop-color: var(--haldi)" stop-opacity=".55"/>
-            <stop offset="1" style="stop-color: var(--haldi)" stop-opacity="0"/>
+            <stop offset="0" stop-color="#f3bd3f" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#f3bd3f" stop-opacity="0"/>
           </radialGradient>
           <linearGradient id="flameG" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0" style="stop-color: var(--marigold)"/>
-            <stop offset=".55" style="stop-color: var(--haldi)"/>
-            <stop offset="1" style="stop-color: var(--rice)"/>
+            <stop offset="0" stop-color="#e88b17"/>
+            <stop offset=".55" stop-color="#f3bd3f"/>
+            <stop offset="1" stop-color="#fbf5e8"/>
           </linearGradient>
           <linearGradient id="clayG" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#b45d31"/>
@@ -596,18 +573,18 @@
           <svg viewBox="0 0 100 100" aria-hidden="true">
             <defs>
               <radialGradient id="wax" cx="36%" cy="30%" r="78%">
-                <stop offset="0" style="stop-color: var(--gold-lit)"/>
-                <stop offset=".6" style="stop-color: var(--gold)"/>
+                <stop offset="0" stop-color="#f0c66e"/>
+                <stop offset=".6" stop-color="#d6a24a"/>
                 <stop offset="1" stop-color="#9c6a22"/>
               </radialGradient>
             </defs>
             <path id="sealEdge" fill="url(#wax)" d="M50 4A46 46 0 1 1 49.9 4Z"/>
-            <circle cx="50" cy="50" r="34" fill="none" stroke="#7a4d12" stroke-opacity=".45" stroke-width="1"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="#7a4d12" stroke-opacity=".45" stroke-width="1"/>
           </svg>
-          <span class="seal-mono">D&nbsp;S</span>
+          <span class="seal-mono">D<span>&amp;</span>S</span>
         </button>
       </div>
-      <p class="for" id="forName">For you</p>
+      <p class="for">For you</p>
     </div>
     <div class="petals" id="petals" aria-hidden="true"></div>
   </article>
@@ -619,32 +596,18 @@
     var NS = "http://www.w3.org/2000/svg";
     var animating = root.classList.contains("anim");
 
-    /* ---------- A greeting for whoever opens it: link#nani-ji → "Dear Nani ji," ---------- */
-    function nameFromHash() {
-      var raw = "";
-      try { raw = decodeURIComponent(location.hash.replace(/^#/, "")); } catch (e) { raw = ""; }
-      raw = raw.replace(/[-_+]+/g, " ").replace(/[^A-Za-z .']/g, "").replace(/\s+/g, " ").trim();
-      if (!raw || raw.length > 32) return "";
-      return raw.split(" ").map(function (w) {
-        var lw = w.toLowerCase();
-        if (lw === "ji" || lw === "and" || lw === "&") return lw;
-        return lw.charAt(0).toUpperCase() + lw.slice(1);
-      }).join(" ");
+    function el(tag, attrs) {
+      var n = document.createElementNS(NS, tag);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
     }
-    function personalise() {
-      var name = nameFromHash();
-      document.getElementById("greeting").textContent = name ? "Dear " + name + "," : "Dear you,";
-      document.getElementById("forName").textContent = name ? "For " + name : "For you";
-    }
-    personalise();
-    window.addEventListener("hashchange", personalise);
 
     /* ---------- Torn paper edge, cut once as a polygon (cheap to composite) ---------- */
     (function () {
       var letter = document.querySelector(".letter");
       function edge(len, seed) {
-        var pts = [], step = 5;
-        for (var d = 0; d <= len; d += step) {
+        var pts = [];
+        for (var d = 0; d <= len; d += 5) {
           var j = 1.6 + 1.1 * Math.sin(d * 0.11 + seed) + 0.7 * Math.sin(d * 0.37 + seed * 2.3) + Math.random() * 1.6;
           pts.push([Math.min(d, len), Math.max(0, j)]);
         }
@@ -672,24 +635,15 @@
       return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
     })(20261221);
     var oranges = ["#d9660f", "#e47915", "#ec8b1c", "#f19f2a", "#f5b23c"];
-    function el(tag, attrs) {
-      var n = document.createElementNS(NS, tag);
-      for (var k in attrs) n.setAttribute(k, attrs[k]);
-      return n;
-    }
     function marigold(svg, scale, withLeaves) {
       var g = el("g", { transform: "scale(" + scale + ")" });
       if (withLeaves) {
         [[-38, 32, 210], [30, 40, 140]].forEach(function (l) {
-          g.appendChild(el("path", {
-            d: "M0 0C10 -10 30 -10 44 0C30 10 10 10 0 0Z",
-            fill: "#546f3c", opacity: ".85",
-            transform: "translate(" + l[0] + " " + l[1] + ") rotate(" + l[2] + ")"
-          }));
+          g.appendChild(el("path", { d: "M0 0C10 -10 30 -10 44 0C30 10 10 10 0 0Z", fill: "#546f3c", opacity: ".85",
+            transform: "translate(" + l[0] + " " + l[1] + ") rotate(" + l[2] + ")" }));
         });
       }
-      var rings = [[46, 22], [38, 20], [30, 17], [22, 14], [14, 10], [7, 7]];
-      rings.forEach(function (ring, ri) {
+      [[46, 22], [38, 20], [30, 17], [22, 14], [14, 10], [7, 7]].forEach(function (ring, ri) {
         var r = ring[0], n = ring[1];
         for (var i = 0; i < n; i++) {
           var a = (i / n) * 360 + rand() * 14 + ri * 9;
@@ -698,12 +652,9 @@
           var d = "M0 0C" + (-w) + " " + (-len * 0.4) + " " + (-w * 0.7) + " " + (-len) + " " + (-w * 0.2) + " " + (-len * 1.02) +
                   "L0 " + (-len * 0.9) + "L" + (w * 0.2) + " " + (-len * 1.04) +
                   "C" + (w * 0.7) + " " + (-len) + " " + w + " " + (-len * 0.4) + " 0 0Z";
-          g.appendChild(el("path", {
-            d: d,
-            fill: oranges[Math.min(4, Math.floor(ri * 0.7 + rand() * 2))],
+          g.appendChild(el("path", { d: d, fill: oranges[Math.min(4, Math.floor(ri * 0.7 + rand() * 2))],
             opacity: (0.82 + rand() * 0.15).toFixed(2),
-            transform: "rotate(" + a.toFixed(1) + ") translate(0 " + (-(r - len * 0.9)).toFixed(1) + ")"
-          }));
+            transform: "rotate(" + a.toFixed(1) + ") translate(0 " + (-(r - len * 0.9)).toFixed(1) + ")" }));
         }
       });
       g.appendChild(el("circle", { r: 4, fill: "#b8540c", opacity: ".8" }));
@@ -712,7 +663,7 @@
     marigold(document.getElementById("flower"), 1, true);
     marigold(document.getElementById("divideFlower"), 1.1, false);
 
-    /* kumkum thumbprint and a few grains of rice */
+    /* ---------- Kumkum thumbprint and rice, pressed beside the word ---------- */
     (function () {
       var svg = document.getElementById("kumkum");
       svg.appendChild(el("ellipse", { cx: 40, cy: 34, rx: 21, ry: 15, fill: "#a51f16", opacity: ".95", transform: "rotate(-18 40 34)", filter: "url(#smear)" }));
@@ -747,35 +698,71 @@
       document.getElementById("sealEdge").setAttribute("d", "M" + pts.join("L") + "Z");
     })();
 
-    /* ---------- Falling marigold petals, once ---------- */
+    var petalColours = ["#ec8b1c", "#f3bd3f", "#e47915", "#f5b23c"];
+
+    /* ---------- Falling marigold petals as the doors open ---------- */
     function petals() {
       var layer = document.getElementById("petals");
       if (!layer.animate) return;
       var h = Math.min(layer.clientHeight, window.innerHeight * 1.2);
-      var colours = ["#ec8b1c", "#f3bd3f", "#e47915", "#f5b23c"];
-      for (var i = 0; i < 24; i++) {
+      for (var i = 0; i < 22; i++) {
         var p = document.createElement("span");
         var w = 7 + Math.random() * 5;
         p.className = "petal";
         p.style.width = w + "px";
         p.style.height = w * 1.35 + "px";
         p.style.left = 4 + Math.random() * 92 + "%";
-        p.style.background = colours[i % colours.length];
+        p.style.background = petalColours[i % petalColours.length];
         layer.appendChild(p);
-        var drift = (Math.random() - 0.5) * 90;
-        var sway = 14 + Math.random() * 18;
+        var drift = (Math.random() - 0.5) * 90, sway = 14 + Math.random() * 18;
         var spin = (Math.random() > 0.5 ? 1 : -1) * (220 + Math.random() * 320);
-        var anim = p.animate(
-          [
-            { transform: "translate(0, 0) rotate(0deg)", opacity: 0 },
-            { transform: "translate(" + (drift * 0.3 + sway) + "px, " + h * 0.3 + "px) rotate(" + spin * 0.3 + "deg)", opacity: 0.95, offset: 0.25 },
-            { transform: "translate(" + (drift * 0.6 - sway) + "px, " + h * 0.62 + "px) rotate(" + spin * 0.65 + "deg)", opacity: 0.9, offset: 0.6 },
-            { transform: "translate(" + drift + "px, " + (h + 30) + "px) rotate(" + spin + "deg)", opacity: 0 }
-          ],
-          { duration: 3800 + Math.random() * 2000, delay: Math.random() * 1200, easing: "cubic-bezier(.3,.15,.6,1)", fill: "both" }
-        );
+        var anim = p.animate([
+          { transform: "translate(0, 0) rotate(0deg)", opacity: 0 },
+          { transform: "translate(" + (drift * 0.3 + sway) + "px, " + h * 0.3 + "px) rotate(" + spin * 0.3 + "deg)", opacity: 0.95, offset: 0.25 },
+          { transform: "translate(" + (drift * 0.6 - sway) + "px, " + h * 0.62 + "px) rotate(" + spin * 0.65 + "deg)", opacity: 0.9, offset: 0.6 },
+          { transform: "translate(" + drift + "px, " + (h + 30) + "px) rotate(" + spin + "deg)", opacity: 0 }
+        ], { duration: 3800 + Math.random() * 2000, delay: Math.random() * 1200, easing: "cubic-bezier(.3,.15,.6,1)", fill: "both" });
         anim.onfinish = (function (node) { return function () { node.remove(); }; })(p);
       }
+    }
+
+    /* ---------- The reveal: रोका is written in, the thumbprint lands, petals burst ---------- */
+    var reveal = document.getElementById("reveal");
+    function burst() {
+      var layer = document.getElementById("burst");
+      if (!layer.animate) return;
+      for (var i = 0; i < 18; i++) {
+        var p = document.createElement("span");
+        var w = 7 + Math.random() * 4;
+        p.style.width = w + "px";
+        p.style.height = w * 1.35 + "px";
+        p.style.background = petalColours[i % petalColours.length];
+        layer.appendChild(p);
+        var a = (i / 18) * Math.PI * 2 + Math.random() * 0.3;
+        var dist = 90 + Math.random() * 90;
+        var x = Math.cos(a) * dist, y = Math.sin(a) * dist * 0.7;
+        var spin = (Math.random() > 0.5 ? 1 : -1) * (180 + Math.random() * 240);
+        var anim = p.animate([
+          { transform: "translate(0, 0) rotate(0deg) scale(0.6)", opacity: 0 },
+          { transform: "translate(" + x * 0.8 + "px, " + y * 0.8 + "px) rotate(" + spin * 0.4 + "deg) scale(1)", opacity: 1, offset: 0.3 },
+          { transform: "translate(" + x + "px, " + (y + 120) + "px) rotate(" + spin + "deg) scale(0.9)", opacity: 0 }
+        ], { duration: 2200 + Math.random() * 700, easing: "cubic-bezier(.2,.7,.4,1)", fill: "both" });
+        anim.onfinish = (function (node) { return function () { node.remove(); }; })(p);
+      }
+    }
+    function showReveal() {
+      if (reveal.classList.contains("shown")) return;
+      reveal.classList.add("shown");
+      setTimeout(burst, 1150);
+    }
+    function watchReveal() {
+      if (!("IntersectionObserver" in window)) { showReveal(); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { showReveal(); io.disconnect(); }
+        });
+      }, { threshold: 0.6 });
+      io.observe(reveal.querySelector(".reveal-word"));
     }
 
     /* ---------- Opening ---------- */
@@ -787,6 +774,7 @@
       setTimeout(function () {
         root.classList.add("open");
         setTimeout(petals, 1000);
+        setTimeout(watchReveal, 1700);
         setTimeout(function () {
           document.querySelector(".doors").hidden = true;
           document.querySelector(".cover").hidden = true;
