@@ -37,7 +37,7 @@ VARIANTS = {
         "GREETING": "Dear you,",
         "STORY": [
             "You have known about the two of us for a long time. And for just as long, you have been asking "
-            "the same question: &ldquo;Shaadi kab kar rahe ho?&rdquo; We laughed it off, changed the subject, "
+            "the same question: &ldquo;Official kab kar rahe ho?&rdquo; We laughed it off, changed the subject, "
             "and never once gave you a proper answer.",
             "So it is only right that you hear this from us. On the evening of 21 December, our families "
             "are sitting down together, the mithai is ordered, and we are finally making it official.",
