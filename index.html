@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b100c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dhruv &amp; Saumya">
+<meta property="og:title" content="Dhruv &amp; Saumya's Roka">
+<meta property="og:description" content="Monday, 21 December 2026 · from 5:30 pm · TFC, Meerut. A small evening with the people closest to us.">
+<meta property="og:url" content="https://dhruv1701.github.io/roka/">
+<meta property="og:image" content="https://dhruv1701.github.io/roka/og.jpg">
+<meta property="og:image:secure_url" content="https://dhruv1701.github.io/roka/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A red gatefold invitation sealed with gold, for the Roka of Dhruv and Saumya">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%238a1a12'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23d6a24a'/%3E%3C/svg%3E">
+<title>Dhruv &amp; Saumya's Roka</title>
+<meta name="description" content="A letter from Dhruv and Saumya: our Roka, Monday 21 December 2026, from 5:30 pm at TFC, Sadar Bazaar, Meerut.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mrs+Saint+Delafield&family=Tiro+Devanagari+Hindi&display=swap">
+<script>
+  (function () {
+    var root = document.documentElement;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    root.classList.add(reduce ? "rm" : "anim");
+  })();
+</script>
+<style>
+  /* Layout: a handwritten letter on cotton paper, lying on a lamplit table at dusk.
+     Sealed in red shagun paper; the doors open onto the letter. One world, one look in both themes. */
+  :root {
+    color-scheme: dark;
+    --table: #1b100c;
+    --table-lit: #3b2317;
+    --lamp: #f0a548;
+
+    --paper: #f5ecdc;
+    --paper-shade: #e8d9bf;
+    --ink: #2d1611;
+    --ink-soft: #6b4a3c;
+    --rule: #cdb594;
+
+    --sindoor: #b0261c;
+    --sindoor-deep: #7a150f;
+    --shagun: #8a1a12;
+    --gold: #d6a24a;
+    --gold-lit: #f0c66e;
+    --marigold: #e88b17;
+    --haldi: #f3bd3f;
+    --leaf: #546f3c;
+    --rice: #fbf5e8;
+
+    --font-script: "Mrs Saint Delafield", "Snell Roundhand", "Apple Chancery", cursive;
+    --font-text: "EB Garamond", "Garamond", "Iowan Old Style", Georgia, serif;
+    --font-deva: "Tiro Devanagari Hindi", "Kohinoor Devanagari", serif;
+
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-door: cubic-bezier(0.65, 0, 0.25, 1);
+  }
+
+  html, body { min-height: 100%; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(90% 60% at 50% 0%, var(--table-lit) 0%, transparent 70%),
+      var(--table);
+    color: var(--ink);
+    font-family: var(--font-text);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: clip;
+  }
+  ::selection { background: var(--haldi); color: var(--ink); }
+
+  /* the lamp glow that breathes on the table */
+  .glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(60% 45% at 50% 12%, color-mix(in srgb, var(--lamp) 14%, transparent), transparent 70%);
+  }
+  .anim .glow { animation: breathe 7s ease-in-out infinite; }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.85; }
+    35% { opacity: 1; }
+    55% { opacity: 0.78; }
+    80% { opacity: 0.95; }
+  }
+
+  .stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-block: clamp(28px, 6vw, 72px) clamp(40px, 8vw, 96px);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    perspective: 1800px;
+    overflow-x: clip;
+  }
+
+  /* ---------- The letter ---------- */
+  .letter {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 600px);
+    padding: clamp(30px, 8vw, 68px) clamp(24px, 8vw, 68px) clamp(34px, 8vw, 64px);
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+  }
+  .letter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-color: var(--paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .4 0 0 0 0 .25 0 0 0 .16 -.03'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E"),
+      radial-gradient(140% 90% at 50% 40%, transparent 55%, var(--paper-shade) 100%);
+    filter: url(#deckle) drop-shadow(0 28px 36px rgb(0 0 0 / 0.55)) drop-shadow(0 4px 8px rgb(0 0 0 / 0.3));
+  }
+
+  .letter > * { position: relative; z-index: 1; }
+
+  .dateline {
+    margin: 0;
+    padding-right: clamp(64px, 17vw, 96px);
+    text-align: right;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  .roka {
+    margin: clamp(10px, 3vw, 22px) 0 0;
+    font-family: var(--font-deva);
+    font-weight: 400;
+    font-size: clamp(68px, 19vw, 112px);
+    line-height: 1.15;
+    color: var(--sindoor);
+    letter-spacing: 0;
+  }
+  .of {
+    margin: 2px 0 0;
+    font-size: 15px;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+
+  .greeting {
+    margin: clamp(30px, 8vw, 52px) 0 0;
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: clamp(46px, 12vw, 62px);
+    line-height: 1.25;
+    padding-top: 0.12em;
+    color: var(--ink);
+  }
+
+  .body {
+    margin-top: 10px;
+    max-width: 31em;
+  }
+  .body p {
+    margin: 0 0 0.85em;
+    font-style: italic;
+    font-size: clamp(19px, 4.8vw, 21.5px);
+    line-height: 1.62;
+    color: var(--ink);
+    text-wrap: pretty;
+    hanging-punctuation: first;
+  }
+
+  .signoff {
+    margin: clamp(18px, 5vw, 28px) 0 0;
+    font-style: italic;
+    font-size: clamp(19px, 4.8vw, 21.5px);
+    color: var(--ink-soft);
+  }
+  .signature {
+    margin: 0;
+    padding: 0.08em 0 0 clamp(4px, 3vw, 40px);
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: clamp(48px, 13.5vw, 92px);
+    line-height: 1.05;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+  .signature .amp { font-size: 0.62em; color: var(--sindoor); padding: 0 0.08em; }
+
+  .divide {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: clamp(32px, 8vw, 48px) 0 clamp(24px, 6vw, 34px);
+  }
+  .divide::before, .divide::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .divide svg { width: 30px; height: 30px; flex: none; }
+
+  .ps {
+    margin: clamp(18px, 5vw, 26px) 0 0;
+    font-style: italic;
+    font-size: clamp(18px, 4.6vw, 20px);
+    color: var(--ink-soft);
+  }
+
+  /* the when and where, set like the foot of a letter */
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .details p { margin: 0; }
+  .d-day {
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+  }
+  .d-date {
+    margin-top: 2px;
+    font-size: clamp(30px, 8.4vw, 40px);
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .d-time {
+    margin-top: 6px;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+  }
+  .d-mark {
+    width: 6px;
+    height: 6px;
+    margin: 26px 0;
+    border-radius: 50%;
+    background: var(--sindoor);
+  }
+  .d-venue {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    padding-left: 0.28em;
+    color: var(--ink);
+  }
+  .d-addr {
+    margin-top: 6px;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .way {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-top: 18px;
+    padding: 0 6px;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--sindoor-deep);
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform 160ms var(--ease-out), color 200ms ease;
+  }
+  .way svg { width: 18px; height: 18px; flex: none; }
+  .way span {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+    padding-bottom: 2px;
+    transition: background-size 260ms var(--ease-out);
+  }
+  .way:active { transform: scale(0.97); }
+  .way:focus-visible { outline: 2px solid var(--sindoor); outline-offset: 4px; border-radius: 4px; }
+  @media (hover: hover) and (pointer: fine) {
+    .way:hover { color: var(--sindoor); }
+    .way:hover span { background-size: 100% 2px; }
+  }
+
+  .lamp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: clamp(30px, 7vw, 44px);
+  }
+  .lamp svg { width: 88px; height: 70px; overflow: visible; }
+  .countdown {
+    margin: 0;
+    min-height: 1.5em;
+    font-size: 15px;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .flame { transform-box: fill-box; transform-origin: 50% 100%; }
+  .halo { transform-box: fill-box; transform-origin: 50% 50%; }
+  .anim .flame { animation: flicker 2.6s ease-in-out infinite; }
+  .anim .halo { animation: halo 2.6s ease-in-out infinite; }
+  @keyframes flicker {
+    0%, 100% { transform: scale(1, 1) skewX(0deg); }
+    18% { transform: scale(0.96, 1.06) skewX(2deg); }
+    32% { transform: scale(1.02, 0.97) skewX(-1.5deg); }
+    51% { transform: scale(0.98, 1.08) skewX(1deg); }
+    70% { transform: scale(1.03, 0.95) skewX(-2deg); }
+    86% { transform: scale(0.99, 1.03) skewX(0.5deg); }
+  }
+  @keyframes halo {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    30% { opacity: 0.7; transform: scale(1.06); }
+    60% { opacity: 0.5; transform: scale(0.97); }
+  }
+
+  /* pressed flowers, kumkum and rice: things that were actually on the table */
+  .keepsake { position: absolute; z-index: 0; pointer-events: none; }
+  .k-flower { width: clamp(96px, 26vw, 138px); top: clamp(-30px, -5vw, -18px); right: clamp(-34px, -6vw, -20px); transform: rotate(14deg); }
+  .k-kumkum { width: clamp(70px, 18vw, 92px); top: clamp(16px, 4vw, 34px); left: clamp(14px, 4vw, 34px); }
+
+  /* ---------- Shagun doors and seal (only when motion runs) ---------- */
+  .doors, .cover, .shade, .petals { display: none; }
+
+  .anim .doors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transform-style: preserve-3d;
+  }
+  .door {
+    position: relative;
+    background-color: var(--shagun);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='38' viewBox='0 0 38 38'%3E%3Cg fill='none' stroke='%23d6a24a' stroke-opacity='.3' stroke-width='.9'%3E%3Ccircle cx='0' cy='0' r='19'/%3E%3Ccircle cx='38' cy='0' r='19'/%3E%3Ccircle cx='0' cy='38' r='19'/%3E%3Ccircle cx='38' cy='38' r='19'/%3E%3Ccircle cx='19' cy='19' r='19'/%3E%3C/g%3E%3Ccircle cx='19' cy='19' r='1.5' fill='%23d6a24a' fill-opacity='.45'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 38px 38px, 260px 260px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition:
+      transform 1400ms var(--ease-door),
+      opacity 560ms ease-out 700ms;
+  }
+  .door::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+    pointer-events: none;
+  }
+  .door-l {
+    border-radius: 3px 0 0 3px;
+    transform-origin: left center;
+    box-shadow: inset -10px 0 18px -12px rgb(0 0 0 / 0.6);
+    background-position: right top, 0 0;
+  }
+  .door-l::before { border-right: 0; }
+  .door-r {
+    border-radius: 0 3px 3px 0;
+    transform-origin: right center;
+    box-shadow: inset 10px 0 18px -12px rgb(0 0 0 / 0.6);
+    background-position: left top, 0 0;
+  }
+  .door-r::before { border-left: 0; }
+
+  .anim .shade {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgb(40 10 6 / 0.45), transparent 30%, transparent 70%, rgb(40 10 6 / 0.45));
+    transition: opacity 1300ms ease-out 250ms;
+  }
+
+  .anim .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    left: 50%;
+    top: min(46%, 40vh);
+    z-index: 4;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: 90%;
+  }
+  .seal {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 108px;
+    height: 108px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: var(--sindoor-deep);
+    transition: transform 160ms var(--ease-out);
+    filter: drop-shadow(0 10px 14px rgb(30 6 4 / 0.5));
+  }
+  .seal svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .seal-mono {
+    position: relative;
+    font-family: var(--font-script);
+    font-size: 46px;
+    line-height: 1;
+    padding-top: 10px;
+  }
+  .seal:active { transform: scale(0.95); }
+  .seal:focus-visible { outline: 2px solid var(--gold-lit); outline-offset: 6px; border-radius: 50%; }
+  @media (hover: hover) and (pointer: fine) {
+    .seal:hover { transform: scale(1.03); }
+  }
+  .for {
+    margin: 4px 0 0;
+    font-family: var(--font-script);
+    font-size: 44px;
+    line-height: 1.3;
+    color: var(--gold-lit);
+    text-align: center;
+    transition: opacity 260ms ease-out;
+  }
+
+  /* Opening sequence */
+  .anim .letter {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    transition: opacity 800ms ease-out, transform 1000ms var(--ease-out);
+  }
+  .anim.ready .letter { opacity: 1; transform: none; }
+
+  .anim .seal-wrap {
+    transition: transform 440ms var(--ease-out), opacity 380ms ease-out, filter 440ms ease-out;
+  }
+  .anim.opening .seal-wrap { transform: scale(1.14); opacity: 0; filter: blur(6px); }
+  .anim.opening .for { opacity: 0; }
+  .anim.opening .cover { pointer-events: none; }
+
+  .anim.open .door-l { transform: rotateY(-112deg); opacity: 0; }
+  .anim.open .door-r { transform: rotateY(112deg); opacity: 0; }
+  .anim.open .shade { opacity: 0; }
+  .anim.open .doors { pointer-events: none; }
+
+  .anim .rise {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+  .anim.open .rise {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+    transition:
+      opacity 700ms ease-out,
+      transform 900ms var(--ease-out),
+      filter 700ms ease-out;
+    transition-delay: calc(480ms + var(--i, 0) * 90ms);
+  }
+
+  .anim .petals {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .petal {
+    position: absolute;
+    top: -16px;
+    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+    will-change: transform, opacity;
+  }
+
+  .rm .letter { animation: settle 260ms ease-out both; }
+  @keyframes settle { from { opacity: 0; } to { opacity: 1; } }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="deckle" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="11" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="smear" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.4" result="ga"/>
+      <feComposite in="d" in2="ga" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="glow" aria-hidden="true"></div>
+
+<main class="stage">
+  <article class="letter" aria-labelledby="roka-title">
+    <svg class="keepsake k-kumkum rise" style="--i:0" viewBox="0 0 92 70" aria-hidden="true" id="kumkum"></svg>
+    <svg class="keepsake k-flower rise" style="--i:1" viewBox="-60 -60 120 120" aria-hidden="true" id="flower"></svg>
+
+    <p class="dateline rise" style="--i:0">Meerut, December 2026</p>
+
+    <h1 class="roka rise" style="--i:1" id="roka-title"><span lang="hi">रोका</span></h1>
+    <p class="of rise" style="--i:2">of Dhruv &amp; Saumya</p>
+
+    <p class="greeting rise" style="--i:3" id="greeting">Dear you,</p>
+
+    <div class="body rise" style="--i:4">
+      <p>Saumya and I have some news, though we suspect you already know. On the twenty-first of December, our two families will sit together for the first time as one, share mithai, and make it official.</p>
+      <p>We are keeping it small, only the people who have loved us the longest. You are one of them, and the evening would not feel complete without you there.</p>
+    </div>
+
+    <p class="signoff rise" style="--i:5">With all our love,</p>
+    <p class="signature rise" style="--i:5">Dhruv <span class="amp">&amp;</span> Saumya</p>
+
+    <p class="ps rise" style="--i:6">P.S. Come hungry.</p>
+
+    <div class="divide rise" style="--i:7" aria-hidden="true">
+      <svg viewBox="-60 -60 120 120" id="divideFlower"></svg>
+    </div>
+
+    <section class="details rise" style="--i:8" aria-label="When and where">
+      <p class="d-day">Monday</p>
+      <p class="d-date">21 December 2026</p>
+      <p class="d-time">from half past five in the evening</p>
+
+      <span class="d-mark" aria-hidden="true"></span>
+
+      <p class="d-venue">TFC</p>
+      <p class="d-addr">Hanuman Chowk, Bombay Bazar,<br>Sadar Bazaar, Meerut</p>
+
+      <a class="way" href="https://maps.app.goo.gl/WQaZh6Q9vpkNWHYu8" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        <span>Find the way</span>
+      </a>
+    </section>
+
+    <div class="lamp rise" style="--i:9">
+      <svg viewBox="0 0 88 70" aria-hidden="true">
+        <defs>
+          <radialGradient id="haloG" cx="50%" cy="50%" r="50%">
+            <stop offset="0" style="stop-color: var(--haldi)" stop-opacity=".55"/>
+            <stop offset="1" style="stop-color: var(--haldi)" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="flameG" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" style="stop-color: var(--marigold)"/>
+            <stop offset=".55" style="stop-color: var(--haldi)"/>
+            <stop offset="1" style="stop-color: var(--rice)"/>
+          </linearGradient>
+          <linearGradient id="clayG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#b45d31"/>
+            <stop offset="1" stop-color="#7a3518"/>
+          </linearGradient>
+        </defs>
+        <circle class="halo" cx="62" cy="22" r="22" fill="url(#haloG)"/>
+        <path d="M8 40C14 58 52 62 72 42L82 35C70 41 56 43 42 43C28 43 16 42 8 40Z" fill="url(#clayG)"/>
+        <ellipse cx="42" cy="41" rx="34" ry="3.2" fill="#5b2510" opacity=".55"/>
+        <path d="M12 44C24 52 48 54 64 46" fill="none" stroke="#d2875a" stroke-opacity=".5" stroke-width="1"/>
+        <path class="flame" d="M73 9C78 18 80 25 74 34C67 27 68 18 73 9Z" fill="url(#flameG)"/>
+        <path class="flame" d="M73.6 21C75.4 25 75.6 29 73.8 32C71.6 29.6 72 25 73.6 21Z" fill="#fffaf0" opacity=".9"/>
+      </svg>
+      <p class="countdown" id="countdown"></p>
+    </div>
+
+    <div class="shade" aria-hidden="true"></div>
+    <div class="doors" aria-hidden="true">
+      <div class="door door-l"></div>
+      <div class="door door-r"></div>
+    </div>
+    <div class="cover">
+      <div class="seal-wrap">
+        <button class="seal" id="seal" type="button" aria-label="Open the letter">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="wax" cx="36%" cy="30%" r="78%">
+                <stop offset="0" style="stop-color: var(--gold-lit)"/>
+                <stop offset=".6" style="stop-color: var(--gold)"/>
+                <stop offset="1" stop-color="#9c6a22"/>
+              </radialGradient>
+            </defs>
+            <path id="sealEdge" fill="url(#wax)" d="M50 4A46 46 0 1 1 49.9 4Z"/>
+            <circle cx="50" cy="50" r="34" fill="none" stroke="#7a4d12" stroke-opacity=".45" stroke-width="1"/>
+          </svg>
+          <span class="seal-mono">D&nbsp;S</span>
+        </button>
+      </div>
+      <p class="for" id="forName">For you</p>
+    </div>
+    <div class="petals" id="petals" aria-hidden="true"></div>
+  </article>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var NS = "http://www.w3.org/2000/svg";
+    var animating = root.classList.contains("anim");
+
+    /* ---------- A greeting for whoever opens it: link#nani-ji → "Dear Nani ji," ---------- */
+    function nameFromHash() {
+      var raw = "";
+      try { raw = decodeURIComponent(location.hash.replace(/^#/, "")); } catch (e) { raw = ""; }
+      raw = raw.replace(/[-_+]+/g, " ").replace(/[^A-Za-z .']/g, "").replace(/\s+/g, " ").trim();
+      if (!raw || raw.length > 32) return "";
+      return raw.split(" ").map(function (w) {
+        var lw = w.toLowerCase();
+        if (lw === "ji" || lw === "and" || lw === "&") return lw;
+        return lw.charAt(0).toUpperCase() + lw.slice(1);
+      }).join(" ");
+    }
+    function personalise() {
+      var name = nameFromHash();
+      document.getElementById("greeting").textContent = name ? "Dear " + name + "," : "Dear you,";
+      document.getElementById("forName").textContent = name ? "For " + name : "For you";
+    }
+    personalise();
+    window.addEventListener("hashchange", personalise);
+
+    /* ---------- Pressed marigold ---------- */
+    var rand = (function (seed) {
+      return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+    })(20261221);
+    var oranges = ["#d9660f", "#e47915", "#ec8b1c", "#f19f2a", "#f5b23c"];
+    function el(tag, attrs) {
+      var n = document.createElementNS(NS, tag);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    }
+    function marigold(svg, scale, withLeaves) {
+      var g = el("g", { transform: "scale(" + scale + ")" });
+      if (withLeaves) {
+        [[-38, 32, 210], [30, 40, 140]].forEach(function (l) {
+          g.appendChild(el("path", {
+            d: "M0 0C10 -10 30 -10 44 0C30 10 10 10 0 0Z",
+            fill: "#546f3c", opacity: ".85",
+            transform: "translate(" + l[0] + " " + l[1] + ") rotate(" + l[2] + ")"
+          }));
+        });
+      }
+      var rings = [[46, 22], [38, 20], [30, 17], [22, 14], [14, 10], [7, 7]];
+      rings.forEach(function (ring, ri) {
+        var r = ring[0], n = ring[1];
+        for (var i = 0; i < n; i++) {
+          var a = (i / n) * 360 + rand() * 14 + ri * 9;
+          var len = r * (0.42 + rand() * 0.12);
+          var w = len * (0.55 + rand() * 0.2);
+          var d = "M0 0C" + (-w) + " " + (-len * 0.4) + " " + (-w * 0.7) + " " + (-len) + " " + (-w * 0.2) + " " + (-len * 1.02) +
+                  "L0 " + (-len * 0.9) + "L" + (w * 0.2) + " " + (-len * 1.04) +
+                  "C" + (w * 0.7) + " " + (-len) + " " + w + " " + (-len * 0.4) + " 0 0Z";
+          g.appendChild(el("path", {
+            d: d,
+            fill: oranges[Math.min(4, Math.floor(ri * 0.7 + rand() * 2))],
+            opacity: (0.82 + rand() * 0.15).toFixed(2),
+            transform: "rotate(" + a.toFixed(1) + ") translate(0 " + (-(r - len * 0.9)).toFixed(1) + ")"
+          }));
+        }
+      });
+      g.appendChild(el("circle", { r: 4, fill: "#b8540c", opacity: ".8" }));
+      svg.appendChild(g);
+    }
+    marigold(document.getElementById("flower"), 1, true);
+    marigold(document.getElementById("divideFlower"), 1.1, false);
+
+    /* kumkum thumbprint and a few grains of rice */
+    (function () {
+      var svg = document.getElementById("kumkum");
+      svg.appendChild(el("ellipse", { cx: 40, cy: 34, rx: 21, ry: 15, fill: "#a51f16", opacity: ".95", transform: "rotate(-18 40 34)", filter: "url(#smear)" }));
+      svg.appendChild(el("ellipse", { cx: 36, cy: 31, rx: 9, ry: 6, fill: "#cf3a26", opacity: ".55", transform: "rotate(-18 36 31)", filter: "url(#smear)" }));
+      [[66, 20, 30], [72, 34, -20], [62, 46, 70], [78, 52, 10], [20, 56, -40], [56, 60, 50], [84, 26, 80]].forEach(function (r) {
+        svg.appendChild(el("ellipse", { cx: r[0] + 0.6, cy: r[1] + 0.9, rx: 1.9, ry: 4, fill: "#000", opacity: ".14", transform: "rotate(" + r[2] + " " + r[0] + " " + r[1] + ")" }));
+        svg.appendChild(el("ellipse", { cx: r[0], cy: r[1], rx: 1.9, ry: 4, fill: "#fbf5e8", stroke: "#d8c8a8", "stroke-width": ".5", transform: "rotate(" + r[2] + " " + r[0] + " " + r[1] + ")" }));
+      });
+    })();
+
+    /* ---------- Days to go ---------- */
+    (function () {
+      var out = document.getElementById("countdown");
+      var ist = new Date(Date.now() + 5.5 * 3600 * 1000);
+      var today = Date.UTC(ist.getUTCFullYear(), ist.getUTCMonth(), ist.getUTCDate());
+      var days = Math.round((Date.UTC(2026, 11, 21) - today) / 86400000);
+      if (days > 1) out.textContent = days + " evenings to go";
+      else if (days === 1) out.textContent = "tomorrow evening";
+      else if (days === 0) out.textContent = "this evening";
+    })();
+
+    if (!animating) return;
+
+    /* ---------- Wax seal edge ---------- */
+    (function () {
+      var pts = [];
+      for (var i = 0; i < 96; i++) {
+        var t = (i / 96) * Math.PI * 2;
+        var r = 46 + 1.8 * Math.sin(t * 7 + 0.4) + 1.2 * Math.sin(t * 13 + 1.3) + 0.6 * Math.sin(t * 23);
+        pts.push((50 + r * Math.cos(t)).toFixed(2) + " " + (50 + r * Math.sin(t)).toFixed(2));
+      }
+      document.getElementById("sealEdge").setAttribute("d", "M" + pts.join("L") + "Z");
+    })();
+
+    /* ---------- Falling marigold petals, once ---------- */
+    function petals() {
+      var layer = document.getElementById("petals");
+      if (!layer.animate) return;
+      var h = Math.min(layer.clientHeight, window.innerHeight * 1.2);
+      var colours = ["#ec8b1c", "#f3bd3f", "#e47915", "#f5b23c"];
+      for (var i = 0; i < 24; i++) {
+        var p = document.createElement("span");
+        var w = 7 + Math.random() * 5;
+        p.className = "petal";
+        p.style.width = w + "px";
+        p.style.height = w * 1.35 + "px";
+        p.style.left = 4 + Math.random() * 92 + "%";
+        p.style.background = colours[i % colours.length];
+        layer.appendChild(p);
+        var drift = (Math.random() - 0.5) * 90;
+        var sway = 14 + Math.random() * 18;
+        var spin = (Math.random() > 0.5 ? 1 : -1) * (220 + Math.random() * 320);
+        var anim = p.animate(
+          [
+            { transform: "translate(0, 0) rotate(0deg)", opacity: 0 },
+            { transform: "translate(" + (drift * 0.3 + sway) + "px, " + h * 0.3 + "px) rotate(" + spin * 0.3 + "deg)", opacity: 0.95, offset: 0.25 },
+            { transform: "translate(" + (drift * 0.6 - sway) + "px, " + h * 0.62 + "px) rotate(" + spin * 0.65 + "deg)", opacity: 0.9, offset: 0.6 },
+            { transform: "translate(" + drift + "px, " + (h + 30) + "px) rotate(" + spin + "deg)", opacity: 0 }
+          ],
+          { duration: 3800 + Math.random() * 2000, delay: Math.random() * 1200, easing: "cubic-bezier(.3,.15,.6,1)", fill: "both" }
+        );
+        anim.onfinish = (function (node) { return function () { node.remove(); }; })(p);
+      }
+    }
+
+    /* ---------- Opening ---------- */
+    var opened = false;
+    function openLetter() {
+      if (opened) return;
+      opened = true;
+      root.classList.add("ready", "opening");
+      setTimeout(function () {
+        root.classList.add("open");
+        setTimeout(petals, 700);
+        setTimeout(function () {
+          document.querySelector(".doors").hidden = true;
+          document.querySelector(".cover").hidden = true;
+          document.querySelector(".shade").hidden = true;
+        }, 2000);
+      }, 260);
+    }
+    document.getElementById("seal").addEventListener("click", openLetter);
+
+    var started = false;
+    function begin() {
+      if (started) return;
+      started = true;
+      root.classList.add("ready");
+      setTimeout(openLetter, 2600);
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(begin);
+    setTimeout(begin, 1300);
+  })();
+</script>
+</body>
+</html>
