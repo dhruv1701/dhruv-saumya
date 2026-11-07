@@ -36,14 +36,14 @@ VARIANTS = {
         "OG_IMAGE": BASE + "card-friends.jpg",
         "GREETING": "Dear you,",
         "STORY": [
-            "You have been part of this story from the very start, through all the long calls, "
-            "and every time you asked what was going on with us two while we smiled and changed the subject.",
+            "You have known about the two of us for a long time. And for just as long, you have been asking "
+            "the same question: &ldquo;Shaadi kab kar rahe ho?&rdquo; We laughed it off, changed the subject, "
+            "and never once gave you a proper answer.",
             "So it is only right that you hear this from us. On the evening of 21 December, our families "
             "are sitting down together, the mithai is ordered, and we are finally making it official.",
         ],
         "AFTER": [
-            "We are keeping it small, only the people who have stood by us the longest. "
-            "You are one of them, and it would not feel right without you there.",
+            "It would make us so happy to have you there with us.",
         ],
         "SIGNOFF": "With all our love,",
         "SIGNATURE": SIGNATURE,
@@ -71,14 +71,12 @@ VARIANTS = {
         "OG_IMAGE": BASE + "card-family.jpg",
         "GREETING": "Namaste,",
         "STORY": [
-            "With the blessings of our elders and by God&rsquo;s grace, our families have some happy news, "
-            "and we wanted you to hear it from us first.",
-            "Dhruv and Saumya have chosen each other. On the evening of 21 December, our two families will sit "
-            "together for the first time as one, bless the children, share mithai, and make it official.",
+            "With the blessings of our elders and by God&rsquo;s grace, our families have some happy news.",
+            "Dhruv and Saumya have chosen each other. On the evening of 21 December, our families will sit "
+            "together as one, bless the children, share mithai, and make it official.",
         ],
         "AFTER": [
-            "It will be a small gathering of our closest family. Your presence and your blessings "
-            "would mean a great deal to us, and to them.",
+            "Your presence and your blessings would mean a great deal to us, and to them.",
         ],
         "SIGNOFF": "With love and respect,",
         "SIGNATURE": '    <p class="sig-pre">the families of</p>\n' + SIGNATURE,

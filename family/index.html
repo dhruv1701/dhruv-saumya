@@ -269,6 +269,36 @@
     .way:hover span { background-size: 100% 2px; }
   }
 
+  .tag {
+    display: grid;
+    place-items: center;
+    width: fit-content;
+    min-height: 44px;
+    margin: clamp(30px, 7vw, 40px) auto 0;
+    padding: 8px 20px;
+    border: 1px dashed color-mix(in srgb, var(--sindoor) 45%, transparent);
+    border-radius: 999px;
+    background: none;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--sindoor-deep);
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform 160ms var(--ease-out), border-color 200ms ease, background-color 200ms ease;
+  }
+  .tag > span { grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 6px; transition: opacity 200ms ease, filter 200ms ease; }
+  .tag-done { opacity: 0; filter: blur(2px); font-style: normal; font-size: 16px; }
+  .tag-done svg { width: 16px; height: 16px; }
+  .tag.copied .tag-text { opacity: 0; filter: blur(2px); }
+  .tag.copied .tag-done { opacity: 1; filter: none; }
+  .tag:active { transform: scale(0.97); }
+  .tag:focus-visible { outline: 2px solid var(--sindoor); outline-offset: 3px; }
+  @media (hover: hover) and (pointer: fine) {
+    .tag:hover { border-style: solid; background: color-mix(in srgb, var(--sindoor) 5%, transparent); }
+  }
+
   .lamp { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: clamp(30px, 7vw, 44px); }
   .lamp svg { width: 88px; height: 70px; overflow: visible; }
   .countdown {
@@ -373,7 +403,6 @@
     font-family: var(--font-script);
     font-size: 36px;
     line-height: 1;
-    padding: 8px 0 0 4px;
     white-space: nowrap;
   }
   .seal:active { transform: scale(0.95); }
@@ -445,9 +474,9 @@
     <p class="greeting rise" style="--i:3">Namaste,</p>
 
     <div class="body rise" style="--i:4">
-      <p>With the blessings of our elders and by God&rsquo;s grace, our families have some happy news, and we wanted you to hear it from us first.</p>
-      <p>Dhruv and Saumya have chosen each other. On the evening of 21 December, our two families will sit together for the first time as one, bless the children, share mithai, and make it official.</p>
-      <p>It will be a small gathering of our closest family. Your presence and your blessings would mean a great deal to us, and to them.</p>
+      <p>With the blessings of our elders and by God&rsquo;s grace, our families have some happy news.</p>
+      <p>Dhruv and Saumya have chosen each other. On the evening of 21 December, our families will sit together as one, bless the children, share mithai, and make it official.</p>
+      <p>Your presence and your blessings would mean a great deal to us, and to them.</p>
     </div>
 
 
@@ -475,6 +504,11 @@
         <span>Find the way</span>
       </a>
     </section>
+
+    <button class="tag" type="button" id="tag" aria-label="Copy the hashtag #saumyasharmagayi">
+      <span class="tag-text">#saumyasharmagayi</span>
+      <span class="tag-done" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Copied</span>
+    </button>
 
     <div class="lamp">
       <svg viewBox="0 0 88 70" aria-hidden="true">
@@ -615,6 +649,32 @@
       });
     })();
 
+    /* ---------- Hashtag: tap to copy ---------- */
+    (function () {
+      var tag = document.getElementById("tag");
+      var timer;
+      tag.addEventListener("click", function () {
+        var text = "#saumyasharmagayi";
+        function done() {
+          tag.classList.add("copied");
+          clearTimeout(timer);
+          timer = setTimeout(function () { tag.classList.remove("copied"); }, 1600);
+        }
+        function selectIt() {
+          var r = document.createRange();
+          r.selectNodeContents(tag.querySelector(".tag-text"));
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(r);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, selectIt);
+        } else {
+          selectIt();
+        }
+      });
+    })();
+
     /* ---------- Days to go ---------- */
     (function () {
       var out = document.getElementById("countdown");
@@ -627,6 +687,41 @@
     })();
 
     if (!animating) return;
+
+    /* ---------- Centre the monogram's ink, not its text box, on the seal ---------- */
+    function centreInk(node) {
+      /* draw the text off-screen and find where the ink actually is */
+      var cs = getComputedStyle(node);
+      var fs = parseFloat(cs.fontSize), lh = parseFloat(cs.lineHeight) || fs, k = 4;
+      var cv = document.createElement("canvas");
+      cv.width = fs * 8 * k; cv.height = fs * 4 * k;
+      var ctx = cv.getContext("2d");
+      ctx.scale(k, k);
+      ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+      ctx.textBaseline = "alphabetic";
+      var ox = fs * 3, oy = fs * 2.5;
+      ctx.fillText(node.textContent, ox, oy);
+      var m = ctx.measureText(node.textContent);
+      var d = ctx.getImageData(0, 0, cv.width, cv.height).data;
+      var minX = 1e9, maxX = -1, minY = 1e9, maxY = -1;
+      for (var y = 0; y < cv.height; y++) {
+        for (var x = 0; x < cv.width; x++) {
+          if (d[(y * cv.width + x) * 4 + 3] > 40) {
+            if (x < minX) minX = x; if (x > maxX) maxX = x;
+            if (y < minY) minY = y; if (y > maxY) maxY = y;
+          }
+        }
+      }
+      if (maxX < 0) return;
+      var inkX = (minX + maxX) / 2 / k - ox;
+      var inkY = (minY + maxY) / 2 / k - oy;
+      var fa = m.fontBoundingBoxAscent || fs * 0.8, fd = m.fontBoundingBoxDescent || fs * 0.2;
+      var baseline = (lh - (fa + fd)) / 2 + fa;
+      node.style.transform = "translate(" + (m.width / 2 - inkX).toFixed(2) + "px, " + (lh / 2 - (baseline + inkY)).toFixed(2) + "px)";
+    }
+    var mono = document.querySelector(".seal-mono");
+    centreInk(mono);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { centreInk(mono); });
 
     /* ---------- Wax seal edge ---------- */
     (function () {
