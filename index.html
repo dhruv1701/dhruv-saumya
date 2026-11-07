@@ -203,6 +203,26 @@
   }
   .signature .amp { font-size: 0.62em; color: var(--sindoor); padding: 0 0.08em; }
 
+  /* the hashtag, pressed beside the signature like an ink stamp */
+  .stamp {
+    width: fit-content;
+    margin: 4px 6px 0 auto;
+    padding: 7px 14px 6px;
+    border: 2px solid var(--sindoor);
+    outline: 1px solid var(--sindoor);
+    outline-offset: 3px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    font-variant-caps: all-small-caps;
+    color: var(--sindoor);
+    transform: rotate(-7deg);
+    opacity: 0.88;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
   .ps {
     margin: clamp(18px, 5vw, 26px) 0 0;
     font-style: italic;
@@ -267,36 +287,6 @@
   @media (hover: hover) and (pointer: fine) {
     .way:hover { color: var(--sindoor); }
     .way:hover span { background-size: 100% 2px; }
-  }
-
-  .tag {
-    display: grid;
-    place-items: center;
-    width: fit-content;
-    min-height: 44px;
-    margin: clamp(30px, 7vw, 40px) auto 0;
-    padding: 8px 20px;
-    border: 1px dashed color-mix(in srgb, var(--sindoor) 45%, transparent);
-    border-radius: 999px;
-    background: none;
-    font-family: var(--font-text);
-    font-style: italic;
-    font-size: 20px;
-    color: var(--sindoor-deep);
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-    transition: transform 160ms var(--ease-out), border-color 200ms ease, background-color 200ms ease;
-  }
-  .tag > span { grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 6px; transition: opacity 200ms ease, filter 200ms ease; }
-  .tag-done { opacity: 0; filter: blur(2px); font-style: normal; font-size: 16px; }
-  .tag-done svg { width: 16px; height: 16px; }
-  .tag.copied .tag-text { opacity: 0; filter: blur(2px); }
-  .tag.copied .tag-done { opacity: 1; filter: none; }
-  .tag:active { transform: scale(0.97); }
-  .tag:focus-visible { outline: 2px solid var(--sindoor); outline-offset: 3px; }
-  @media (hover: hover) and (pointer: fine) {
-    .tag:hover { border-style: solid; background: color-mix(in srgb, var(--sindoor) 5%, transparent); }
   }
 
   .lamp { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: clamp(30px, 7vw, 44px); }
@@ -482,6 +472,7 @@
 
     <p class="signoff rise" style="--i:5">With all our love,</p>
     <p class="signature">Dhruv <span class="amp">&amp;</span> Saumya</p>
+    <p class="stamp">#saumyasharmagayi</p>
     <p class="ps">P.S. Come hungry.</p>
 
     <div class="divide" aria-hidden="true">
@@ -503,11 +494,6 @@
         <span>Find the way</span>
       </a>
     </section>
-
-    <button class="tag" type="button" id="tag" aria-label="Copy the hashtag #saumyasharmagayi">
-      <span class="tag-text">#saumyasharmagayi</span>
-      <span class="tag-done" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Copied</span>
-    </button>
 
     <div class="lamp">
       <svg viewBox="0 0 88 70" aria-hidden="true">
@@ -645,32 +631,6 @@
       [[66, 20, 30], [72, 34, -20], [62, 46, 70], [78, 52, 10], [20, 56, -40], [56, 60, 50], [84, 26, 80]].forEach(function (r) {
         svg.appendChild(el("ellipse", { cx: r[0] + 0.6, cy: r[1] + 0.9, rx: 1.9, ry: 4, fill: "#000", opacity: ".14", transform: "rotate(" + r[2] + " " + r[0] + " " + r[1] + ")" }));
         svg.appendChild(el("ellipse", { cx: r[0], cy: r[1], rx: 1.9, ry: 4, fill: "#fbf5e8", stroke: "#d8c8a8", "stroke-width": ".5", transform: "rotate(" + r[2] + " " + r[0] + " " + r[1] + ")" }));
-      });
-    })();
-
-    /* ---------- Hashtag: tap to copy ---------- */
-    (function () {
-      var tag = document.getElementById("tag");
-      var timer;
-      tag.addEventListener("click", function () {
-        var text = "#saumyasharmagayi";
-        function done() {
-          tag.classList.add("copied");
-          clearTimeout(timer);
-          timer = setTimeout(function () { tag.classList.remove("copied"); }, 1600);
-        }
-        function selectIt() {
-          var r = document.createRange();
-          r.selectNodeContents(tag.querySelector(".tag-text"));
-          var sel = window.getSelection();
-          sel.removeAllRanges();
-          sel.addRange(r);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done, selectIt);
-        } else {
-          selectIt();
-        }
       });
     })();
 
