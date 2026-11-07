@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{LANG}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -21,7 +21,7 @@
 <meta name="description" content="{{OG_DESC}}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mrs+Saint+Delafield&family=Tiro+Devanagari+Hindi&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mrs+Saint+Delafield&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap">
 <script>
   (function () {
     var root = document.documentElement;
@@ -466,12 +466,25 @@
   .anim .petals { display: block; position: absolute; inset: 0; z-index: 5; overflow: hidden; pointer-events: none; }
   .petal { position: absolute; top: -16px; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; will-change: transform, opacity; }
 
+  /* Hindi letter: upright Devanagari throughout, no Latin script face */
+  .hi .greeting { font-family: var(--font-deva); font-size: clamp(36px, 9.5vw, 48px); line-height: 1.35; padding-top: 0; }
+  .hi .dateline, .hi .body p, .hi .reveal-lead, .hi .signoff, .hi .sig-pre,
+  .hi .d-day, .hi .d-time, .hi .d-addr, .hi .way, .hi .countdown, .hi .reveal-sub {
+    font-family: var(--font-deva);
+    font-style: normal;
+  }
+  .hi .body p { font-size: clamp(18px, 4.7vw, 20.5px); line-height: 1.85; }
+  .hi .reveal-sub, .hi .countdown { font-variant-caps: normal; letter-spacing: 0.02em; font-size: 16px; }
+  .hi .d-time em { font-style: normal; }
+  .hi .signature { font-family: var(--font-deva); font-size: clamp(28px, 7.6vw, 38px); line-height: 1.4; white-space: normal; padding: 4px 0 0; }
+  .hi .for { font-family: var(--font-deva); font-size: 34px; }
+
   .rm .letter { animation: settle 260ms ease-out both; }
   @keyframes settle { from { opacity: 0; } to { opacity: 1; } }
 </style>
 <!--ARTIFACT-HEAD-END-->
 </head>
-<body>
+<body class="{{BODY_CLASS}}">
 <!--ARTIFACT-BODY-START-->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
@@ -491,7 +504,7 @@
   <article class="letter" aria-label="{{TITLE}}">
     <svg class="keepsake k-flower rise" style="--i:0" viewBox="-60 -60 120 120" aria-hidden="true" id="flower"></svg>
 
-    <p class="dateline rise" style="--i:0">Meerut, 21 December 2026</p>
+    <p class="dateline rise" style="--i:0">{{DATELINE}}</p>
 
     <p class="greeting rise" style="--i:1">{{GREETING}}</p>
 
@@ -521,19 +534,19 @@
       <svg viewBox="-60 -60 120 120" id="divideFlower"></svg>
     </div>
 
-    <section class="details" aria-label="When and where">
-      <p class="d-day">Monday</p>
-      <p class="d-date">21 December 2026</p>
-      <p class="d-time">5:30 pm <em>onwards</em></p>
+    <section class="details" aria-label="{{WHEN_WHERE}}">
+      <p class="d-day">{{D_DAY}}</p>
+      <p class="d-date">{{D_DATE}}</p>
+      <p class="d-time">{{D_TIME}}</p>
 
       <span class="d-mark" aria-hidden="true"></span>
 
       <p class="d-venue">TFC</p>
-      <p class="d-addr">Hanuman Chowk, Bombay Bazar,<br>Sadar Bazaar, Meerut</p>
+      <p class="d-addr">{{D_ADDR}}</p>
 
       <a class="way" href="https://maps.app.goo.gl/WQaZh6Q9vpkNWHYu8" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
-        <span>Find the way</span>
+        <span>{{WAY}}</span>
       </a>
     </section>
 
@@ -571,7 +584,7 @@
     </div>
     <div class="cover">
       <div class="seal-wrap">
-        <button class="seal" id="seal" type="button" aria-label="Open the letter">
+        <button class="seal" id="seal" type="button" aria-label="{{OPEN_LABEL}}">
           <svg viewBox="0 0 100 100" aria-hidden="true">
             <defs>
               <radialGradient id="wax" cx="36%" cy="30%" r="78%">
@@ -586,7 +599,7 @@
           <span class="seal-mono">D<span>&amp;</span>S</span>
         </button>
       </div>
-      <p class="for">For you</p>
+      <p class="for">{{FOR}}</p>
     </div>
     <div class="petals" id="petals" aria-hidden="true"></div>
   </article>
@@ -682,9 +695,9 @@
       var ist = new Date(Date.now() + 5.5 * 3600 * 1000);
       var today = Date.UTC(ist.getUTCFullYear(), ist.getUTCMonth(), ist.getUTCDate());
       var days = Math.round((Date.UTC(2026, 11, 21) - today) / 86400000);
-      if (days > 1) out.textContent = days + " evenings to go";
-      else if (days === 1) out.textContent = "tomorrow evening";
-      else if (days === 0) out.textContent = "this evening";
+      if (days > 1) out.textContent = "{{CD_MANY}}".replace("{n}", days);
+      else if (days === 1) out.textContent = "{{CD_ONE}}";
+      else if (days === 0) out.textContent = "{{CD_ZERO}}";
     })();
 
     if (!animating) return;
