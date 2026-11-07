@@ -98,7 +98,6 @@
     padding-block: clamp(28px, 6vw, 72px) clamp(40px, 8vw, 96px);
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
-    perspective: 1800px;
     overflow-x: clip;
   }
 
@@ -109,7 +108,6 @@
     width: min(100%, 600px);
     padding: clamp(30px, 8vw, 68px) clamp(24px, 8vw, 68px) clamp(34px, 8vw, 64px);
     box-sizing: border-box;
-    transform-style: preserve-3d;
   }
   .letter::before {
     content: "";
@@ -121,7 +119,16 @@
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .4 0 0 0 0 .25 0 0 0 .16 -.03'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E"),
       radial-gradient(140% 90% at 50% 40%, transparent 55%, var(--paper-shade) 100%);
-    filter: url(#deckle) drop-shadow(0 28px 36px rgb(0 0 0 / 0.55)) drop-shadow(0 4px 8px rgb(0 0 0 / 0.3));
+    clip-path: var(--deckle, none);
+  }
+  .letter::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    z-index: -3;
+    border-radius: 2px;
+    box-shadow: 0 28px 40px -6px rgb(0 0 0 / 0.6), 0 4px 10px rgb(0 0 0 / 0.3);
+    pointer-events: none;
   }
 
   .letter > * { position: relative; z-index: 1; }
@@ -342,7 +349,7 @@
     position: absolute;
     inset: 0;
     z-index: 3;
-    transform-style: preserve-3d;
+    perspective: 1800px;
   }
   .door {
     position: relative;
@@ -353,6 +360,7 @@
     background-size: 38px 38px, 260px 260px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
     transition:
       transform 1400ms var(--ease-door),
       opacity 560ms ease-out 700ms;
@@ -461,17 +469,14 @@
 
   .anim .rise {
     opacity: 0;
-    transform: translateY(10px);
-    filter: blur(6px);
+    transform: translateY(12px);
   }
   .anim.open .rise {
     opacity: 1;
     transform: none;
-    filter: blur(0);
     transition:
       opacity 700ms ease-out,
-      transform 900ms var(--ease-out),
-      filter 700ms ease-out;
+      transform 900ms var(--ease-out);
     transition-delay: calc(480ms + var(--i, 0) * 90ms);
   }
 
@@ -500,10 +505,6 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <filter id="deckle" x="-2%" y="-2%" width="104%" height="104%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="11" result="t"/>
-      <feDisplacementMap in="SourceGraphic" in2="t" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
     <filter id="smear" x="-20%" y="-20%" width="140%" height="140%">
       <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="3" result="t"/>
       <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/>
@@ -639,6 +640,34 @@
     personalise();
     window.addEventListener("hashchange", personalise);
 
+    /* ---------- Torn paper edge, cut once as a polygon (cheap to composite) ---------- */
+    (function () {
+      var letter = document.querySelector(".letter");
+      function edge(len, seed) {
+        var pts = [], step = 5;
+        for (var d = 0; d <= len; d += step) {
+          var j = 1.6 + 1.1 * Math.sin(d * 0.11 + seed) + 0.7 * Math.sin(d * 0.37 + seed * 2.3) + Math.random() * 1.6;
+          pts.push([Math.min(d, len), Math.max(0, j)]);
+        }
+        return pts;
+      }
+      var lastW = 0, lastH = 0;
+      function cut() {
+        var w = letter.offsetWidth, h = letter.offsetHeight;
+        if (!w || !h || (w === lastW && h === lastH)) return;
+        lastW = w; lastH = h;
+        var p = [];
+        edge(w, 1).forEach(function (q) { p.push(q[0] + "px " + q[1] + "px"); });
+        edge(h, 4).forEach(function (q) { p.push((w - q[1]) + "px " + q[0] + "px"); });
+        edge(w, 7).forEach(function (q) { p.push((w - q[0]) + "px " + (h - q[1]) + "px"); });
+        edge(h, 9).forEach(function (q) { p.push(q[1] + "px " + (h - q[0]) + "px"); });
+        letter.style.setProperty("--deckle", "polygon(" + p.join(",") + ")");
+      }
+      cut();
+      if (window.ResizeObserver) new ResizeObserver(cut).observe(letter);
+      else window.addEventListener("resize", cut);
+    })();
+
     /* ---------- Pressed marigold ---------- */
     var rand = (function (seed) {
       return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
@@ -758,7 +787,7 @@
       root.classList.add("ready", "opening");
       setTimeout(function () {
         root.classList.add("open");
-        setTimeout(petals, 700);
+        setTimeout(petals, 1000);
         setTimeout(function () {
           document.querySelector(".doors").hidden = true;
           document.querySelector(".cover").hidden = true;
